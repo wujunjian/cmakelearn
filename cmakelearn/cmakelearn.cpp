@@ -16,7 +16,7 @@ int main()
 {
 	std::time_t t = std::time(nullptr);
 	//cout.imbue(std::locale(""));
-	cout << "Hello CMake。" << std::put_time(std::localtime(&t), "%c %Z") << endl;
+	cout << "Hello CMake。"  << std::put_time(std::localtime(&t), "%Y-%m-%d %H:%M:%S") << endl;
 
 
 	hello()(string("hello"));

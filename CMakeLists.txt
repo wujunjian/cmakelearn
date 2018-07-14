@@ -3,12 +3,31 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("cmakelearn")
+project (cmakelearn)
 
-add_compile_options(-std=c++11)
+# The version number.
+set (Tutorial_VERSION_MAJOR 1)
+set (Tutorial_VERSION_MINOR 0)
+
+configure_file(
+	"${PROJECT_SOURCE_DIR}/TutorialConfig.h.in"
+	"${PROJECT_BINARY_DIR}/TutorialConfig.h"
+)
+
+if(UNIX)
+    add_compile_options(-std=c++1y)
+else()
+endif()
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/hello)
 link_directories(${CMAKE_CURRENT_LIST_DIR}/hello)
+
+# should we use our own hello functions?
+option (USE_MYHELLO "Use tutorial provided hello implementation" ON)
+
+if (USE_MYHELLO)
+	MESSAGE(STATUS "USE_MYHELLO")
+endif (USE_MYHELLO)
 
 # 包含子项目。
 add_subdirectory ("cmakelearn")
