@@ -25,6 +25,6 @@ int main()
 	//cout << cout.getloc().name() << endl;
 	//cout << std::locale("en_US.UTF8").name().c_str() << "..." << endl;
 
-	//cin.get();
+	cin.get();
 	return 0;
 }
