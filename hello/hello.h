@@ -8,5 +8,5 @@ using namespace std;
 class hello
 {
 public:
-	void operator()(string& data);
+	void operator()(const string& data);
 };

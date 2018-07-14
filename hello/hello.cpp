@@ -4,4 +4,7 @@
 using namespace std;
 
 
-void hello::operator()(string& data) { cout << data << endl; }
+void hello::operator()(const string& data) 
+{ 
+	cout << data << endl; 
+}
