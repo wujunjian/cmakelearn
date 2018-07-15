@@ -6,12 +6,12 @@ cmake_minimum_required (VERSION 3.8)
 project (cmakelearn)
 
 # The version number.
-set (Tutorial_VERSION_MAJOR 1)
-set (Tutorial_VERSION_MINOR 0)
+set (VERSION_MAJOR 1)
+set (VERSION_MINOR 0)
 
 configure_file(
-	"${PROJECT_SOURCE_DIR}/TutorialConfig.h.in"
-	"${PROJECT_BINARY_DIR}/TutorialConfig.h"
+	"${PROJECT_SOURCE_DIR}/Config.h.in"
+	"${PROJECT_BINARY_DIR}/Config.h"
 )
 
 if(UNIX)
@@ -19,6 +19,8 @@ if(UNIX)
 else()
 endif()
 
+
+include_directories(${CMAKE_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_LIST_DIR}/hello)
 link_directories(${CMAKE_CURRENT_LIST_DIR}/hello)
 
@@ -32,6 +34,7 @@ endif (USE_MYHELLO)
 # 包含子项目。
 add_subdirectory ("cmakelearn")
 add_subdirectory ("hello")
+add_subdirectory(MathFunctions)
 
 MESSAGE(STATUS "PROJECT_BINARY_DIR :" ${PROJECT_BINARY_DIR})
 
@@ -39,3 +42,9 @@ MESSAGE(STATUS "PROJECT_BINARY_DIR :" ${PROJECT_BINARY_DIR})
 #SET(PROJECT_BINARY_DIR build)
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+
+
+# does this system provide the log and exp functions?
+include (CheckFunctionExists)
+check_function_exists (log HAVE_LOG)
+check_function_exists (exp HAVE_EXP)
