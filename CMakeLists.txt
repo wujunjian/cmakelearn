@@ -3,6 +3,17 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+
+include(HunterGate)
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.21.16.tar.gz"
+    SHA1 "aa1faccd24f33dd2c368f85a4e9ca2e5d9c249cb"
+    LOCAL
+)
+
+
 project (cmakelearn)
 
 # The version number.
@@ -48,3 +59,8 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 include (CheckFunctionExists)
 check_function_exists (log HAVE_LOG)
 check_function_exists (exp HAVE_EXP)
+
+
+#hunter_add_package(Boost COMPONENTS program_options filesystem system thread context fiber log)
+#find_package(Boost CONFIG REQUIRED program_options filesystem system thread context fiber log)
+
