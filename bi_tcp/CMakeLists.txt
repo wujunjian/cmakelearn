@@ -18,9 +18,9 @@ if(Boost_FOUND)
     set(Boost_USE_STATIC_LIBS        ON) # only find static libs
     set(Boost_USE_MULTITHREADED      ON)
     set(Boost_USE_STATIC_RUNTIME    OFF)
+    target_link_libraries(bi_tcp 
+        Boost::system
+        Boost::thread
+    )
 endif()
 
-target_link_libraries(bi_tcp 
-Boost::system
-Boost::thread
-)
