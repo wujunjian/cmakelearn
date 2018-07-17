@@ -6,12 +6,12 @@ cmake_minimum_required (VERSION 3.8)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-include(HunterGate)
-HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.21.16.tar.gz"
-    SHA1 "aa1faccd24f33dd2c368f85a4e9ca2e5d9c249cb"
-    LOCAL
-)
+#include(HunterGate)
+#HunterGate(
+#    URL "https://github.com/ruslo/hunter/archive/v0.21.16.tar.gz"
+#    SHA1 "aa1faccd24f33dd2c368f85a4e9ca2e5d9c249cb"
+#    LOCAL
+#)
 
 
 project (cmakelearn)
@@ -46,6 +46,7 @@ endif (USE_MYHELLO)
 add_subdirectory ("cmakelearn")
 add_subdirectory ("hello")
 add_subdirectory(MathFunctions)
+add_subdirectory(bi_tcp)
 
 MESSAGE(STATUS "PROJECT_BINARY_DIR :" ${PROJECT_BINARY_DIR})
 
