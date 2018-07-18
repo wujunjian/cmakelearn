@@ -15,6 +15,8 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/asio.hpp>
+#include <chrono>
+#include <thread>
 
 using boost::asio::ip::tcp;
 
@@ -49,6 +51,9 @@ public:
 			boost::bind(&tcp_connection::handle_write, shared_from_this(),
 				boost::asio::placeholders::error,
 				boost::asio::placeholders::bytes_transferred));
+
+		std::chrono::seconds sec(12);
+		std::this_thread::sleep_for(sec);
 	}
 
 private:
