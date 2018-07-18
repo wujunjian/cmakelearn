@@ -5,9 +5,14 @@ cmake_minimum_required (VERSION 3.8)
 
 # 将源添加到此项目的可执行文件。
 
-set(BOOST_ROOT "D:\\boost_1_67_0")
+if(WIN32)
+	set(BOOST_ROOT "D:\\boost_1_67_0")
+else()
+	set(BOOST_ROOT "/root/boost_1_67_0")
+endif()
+
 set(BOOST_INCLUDE_DIRS "${BOOST_ROOT}")
-set(Boost_LIBRARIES "${BOOST_ROOT}\\stage\\lib")
+set(Boost_LIBRARIES "${BOOST_ROOT}/stage/lib")
 
 find_package(Boost 1.67.0 COMPONENTS system thread filesystem )
 
@@ -24,6 +29,8 @@ if(Boost_FOUND)
         Boost::thread
 		
     )
+
+	install (TARGETS bi_tcp DESTINATION bin)
 else()
     MESSAGE(STATUS "Boost not FOUND")
 endif()
