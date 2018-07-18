@@ -10,6 +10,6 @@ add_executable (cmakelearn cmakelearn.cpp cmakelearn.h)
 target_link_libraries(cmakelearn hello)
 
 # add the install targets
-install (TARGETS cmakelearn DESTINATION bin)
+#install (TARGETS cmakelearn DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h"        
          DESTINATION include)
